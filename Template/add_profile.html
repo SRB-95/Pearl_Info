@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block add_profile_body %}
+<div>
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <label for="">Email</label>
+        <input type="text" name="email" id="" placeholder="Enter email..."><br><br>
+
+        <label for="">Contact</label>
+        <input type="text" name="contact" id="" placeholder="Enter contact..." maxlength="10"><br><br>
+
+        <label for="">Location</label>
+        <input type="text" name="location" id="" placeholder="Enter location..."><br><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+{% endblock %}

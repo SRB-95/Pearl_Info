@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block user_login_body %}
+<div class="container"  style="background-image: url('https://images.wallpapersden.com/image/download/line-light-background_aGVsZpSZmpqtpaSklGdqa2WtZmtlZQ.jpg'); height: 100%; width: 100%;">
+    <div class = 'col-md-4' style="margin-top: 14.5%; margin-left: 30%; margin-bottom: 12%;">
+        <div class="card">
+            <div class="card-header bg-primary" style="padding: 15px; text-align: center; font-size: 20px;">
+                Login
+            </div>
+            <div class="card-body" style="padding-left: 20px; padding-top: 20px; border: 2px solid #337AB7;">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {% for user_field in user_form %}
+                        {{ user_field.label_tag }} {{ user_field }} {{ user_field.errors|striptags}} <br><br>
+                    {% endfor %}
+                    <input type="submit" value="Login"><br><br>
+                    <!-- login error handeling -->
+                    {% if user_form.non_field_errors %}
+                        {% for error in user_form.non_field_errors %}
+                            <p id="slp" style="color: red;">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function disable(){
+            // document.getElementById("slp").style = 'color:white';
+            document.getElementById("slp").style.display = 'none';
+        }
+        setTimeout(disable, 5000);
+</script>
+{% endblock %}

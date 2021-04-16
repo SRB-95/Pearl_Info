@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block user_profile_body %}
+<div class="row" style="margin-top: 70px;">
+    <h3 style="font-style: italic; color: orangered; text-align: center; font-weight: bold; padding-bottom: 30px;">-: Current Login User :-</h3>
+    <div class="col-sm-6">
+        <span style=" padding-left: 50%;">
+            <img src="{{ user.profile.image.url }}" alt="profile_logo" height="300px" width="300px" style="border-radius: 8px;">
+        </span>
+    </div>
+    <div class="col-sm-6">
+        {{ user_profile }}
+        <h3><span style="font-weight: bold;">User Name:</span>  {{ name }}</h3><br>
+        <h3><span style="font-weight: bold;">Email:</span>  {{ user_profile['mail'] }}</h3><br>
+        <h3><span style="font-weight: bold;">Contact Number:</span>  {{ user_profile['contact'] }}</h3><br>
+        <h3><span style="font-weight: bold;">Location:</span>  {{ user_profile['location'] }}</h3><br>
+    </div>
+    
+</div>
+
+{% endblock %}

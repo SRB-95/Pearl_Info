@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pearlInfo</title>
+    <link rel="stylesheet" href="{% static 'pearlApp/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-static-top" class="pearl_nav" style=" background-color: rgb(51, 51, 50); margin-bottom: 0px; height: 80px; padding-top: 10px; font-size: 21px;">
+        <div>
+            <ul class="nav navbar-nav">
+                <a class="navbar-brand" href="{% url 'pearlApp:home' %}"><img src="https://pearlinfo.in/wp-content/uploads/2020/04/Pearlnew.png" alt="logo" height="50px" width="60px" ></a>
+                <li><a class="navbar-link" href="{% url 'pearlApp:about' %}">About</a></li>
+                <li> <a class="navbar-link" href="{% url 'pearlApp:service' %}">Service</a></li>
+                <li><a class="navbar-link" href="{% url 'pearlApp:contact' %}">Contact</a></li>
+                <li><a class="navbar-link" href="{% url 'pearlApp:register' %}">Register</a></li>
+                {% if user.is_authenticated %}
+                    <li><a class="navbar-link" href="{% url 'pearlApp:user_logout' %}">Logout</a>
+                    <li><a class="navbar-link" href="{% url 'pearlApp:add_profile' %}">+Profile</a></li>
+                {% else %}
+                    <li><a class="navbar-link" href="{% url 'pearlApp:user_login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <!-- Successfully registered message -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{message.tags}}" style="margin-bottom: 0px;">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div>
+        {% block home_body %}
+        {% endblock %}
+    </div>
+
+    <div>
+        {% block register_body %}
+        {% endblock %}
+    </div>
+
+    <div>
+        {% block user_login_body %}
+        {% endblock %}
+    </div>
+
+    <div>
+        {% block about_body %}
+        {% endblock %}
+    </div>
+
+    <div>
+        {% block contact_body %}
+        {% endblock %}
+    </div>
+
+    <div>
+        {% block service_body %}
+        {% endblock %}
+    </div>
+
+    <div>
+        {% block add_profile_body %}
+        {% endblock %}
+    </div>
+
+    <div>
+        {% block user_profile_body %}
+        {% endblock %}
+    </div>
+</body>
+</html>

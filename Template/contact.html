@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block contact_body %}
+<div class="contactUs_heading"><h2> <span> >> </span> Contact Us </h2></div>
+<div style="background-color: #f9f9f9;">
+    <div class="contact_touch"> 
+        <h2> Get in <span>Touch with us</span></h2>
+        <h3>Email or Phone</h3>
+    </div><br>
+    <div>
+        <div class="contact-form col-sm-7" style="padding-left: 60px;">
+            <form action="">
+                <label for="name">Name: </label>
+                <input type="text" name="fullname" placeholder="Your name..."><br>
+
+                <label for="email">Email id: </label>
+                <input type="text" name="email" placeholder="Your email..."><br>
+
+                <label for="mob">Phone No. : </label>
+                <input type="text" maxlength="10" name="number" placeholder="Your number..."><br>
+
+                <label for="name">State: </label>
+                <select name="state" id="">
+                    <option value="state">Select Option</option>
+                    <option value="state">Karnatak</option>
+                    <option value="state">Tamil Nadu</option>
+                    <option value="state">Kerala</option>
+                    <option value="state">Andhra Pradesh</option>
+                    <option value="state">Telangana</option>
+                    <option value="state">Odisha</option>
+                    <option value="state">West Bengal</option>
+                </select><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="col-sm-5">
+            <div class="reach_main">
+                <h3 class="reach_us_heading">REACH US</h3>
+                <i class="fa fa-street-view" id="reach_us_address">
+                    201/B, Silicon Tower, Nr. Samartheshwar Mahadev, <br>
+                    <p></p>
+                    Opp. Axis Bank, Law Garden, Ahmedabad – 380006, Gujarat, India. <br>
+                    <p></p>
+                    
+                </i>
+
+                <i class="fa fa-street-view" id="reach_us_num">
+                    079-26401738
+                </i> <br>
+
+                <i class="fa fa-paper-plane" id= reach_us_mail>
+                    info@pearlinfo.in
+                </i>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
